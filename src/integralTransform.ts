@@ -11,7 +11,7 @@ import { xNormed } from 'ml-spectra-processing';
 
 export function integralTransform(array: number[], options: Options = {}) {
   const {
-    shape = { kind: 'gaussian', sd: 1 },
+    shape = { kind: 'gaussian' },
     kernelWidth = 7,
     normalized = false,
     kernelHeight = 1,
