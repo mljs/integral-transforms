@@ -5,7 +5,8 @@ import { xNormed } from 'ml-spectra-processing';
 /**
  * This function returns a broadened spectrum
  * @param array - The original spectrum
- * @returns array: number[]
+ * @param options - options
+ * @returns - broadened spectrum
  */
 
 export function integralTransform(array: number[], options: Options = {}) {
