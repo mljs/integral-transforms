@@ -1,1 +1,1 @@
-export { getbroadenedSpectrum } from './getbroadenedSpectrum';
+export { integralTransform } from './integralTransform';

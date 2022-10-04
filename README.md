@@ -14,16 +14,16 @@
 
 ## Installation
 
-`$ npm i integral-transforms`
+`$ npm i ml-integral-transforms`
 
 ## Usage
 
 ```js
-import { getbroadenedSpectrum } from 'integral-transforms';
+import { integralTransform } from 'integral-transform';
 
 const signal = [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.4, 0.3, 0.2, 0.1, 0];
 
-const broadedSignal = getbroadenedSpectrum(signal, { kernelWidth: 7 });
+const broadedSignal = integralTransform(signal, { kernelWidth: 7 });
 // [0.04, 0.12, 0.24, 0.53, 0.80, 1, 0.80, 0.53, 0.24, 0.12,0.04]
 ```
 
