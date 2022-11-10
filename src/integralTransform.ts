@@ -9,7 +9,10 @@ import { xNormed } from 'ml-spectra-processing';
  * @returns - broadened spectrum
  */
 
-export function integralTransform(array: number[], options: Options = {}) {
+export function integralTransform(
+  array: number[],
+  options: IntegralTransformsOptions = {},
+) {
   const {
     shape = { kind: 'gaussian', sd: 1.2 },
     kernelWidth = 7,
@@ -28,7 +31,7 @@ export function integralTransform(array: number[], options: Options = {}) {
     : result;
 }
 
-interface Options {
+interface IntegralTransformsOptions {
   shape?: Shape1D;
   kernelWidth?: number;
   normalized?: boolean;
