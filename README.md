@@ -29,7 +29,7 @@ const broadedSignal = integralTransform(signal, { kernelWidth: 7 });
 
 **Arguments**
 
-* `array`: Matrix containing the inputs.
+* `array`: Vector containing the inputs.
 
 **Options**
 
