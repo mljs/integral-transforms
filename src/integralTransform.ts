@@ -32,9 +32,33 @@ export function integralTransform(
 }
 
 interface IntegralTransformsOptions {
+  /**
+   * The shape of the kernel to perform the convolution
+   * @default { kind: 'gaussian', sd: 1.2 },
+   */
   shape?: Shape1D;
+
+  /**
+   * The width of the kernel (in number of points)
+   * @default 7
+   */
   kernelWidth?: number;
+
+  /**
+   * if true it will normalize the array to have the max height equal to de value defined in the options
+   * @default true
+   */
   normalized?: boolean;
+
+  /**
+   * Kernel height to perform the convolution
+   * @default 1
+   */
   kernelHeight?: number;
+
+  /**
+   * Maximum height of the vector on which the convolution will be applied
+   * @default 1
+   */
   maxHeight?: number;
 }
