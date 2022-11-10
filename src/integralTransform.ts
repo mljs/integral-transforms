@@ -1,3 +1,4 @@
+import { NumberArray } from 'cheminfo-types';
 import { BorderType, fftConvolution } from 'ml-convolution';
 import { getShape1D, Shape1D } from 'ml-peak-shape-generator';
 import { xNormed } from 'ml-spectra-processing';
@@ -10,11 +11,11 @@ import { xNormed } from 'ml-spectra-processing';
  */
 
 export function integralTransform(
-  array: number[],
+  array: NumberArray,
   options: IntegralTransformsOptions = {},
 ) {
   const {
-    shape = { kind: 'gaussian', sd: 1.2 },
+    shape = { kind: 'gaussian', sd: 3 },
     kernelWidth = 7,
     normalized = false,
     kernelHeight = 1,
@@ -34,7 +35,7 @@ export function integralTransform(
 interface IntegralTransformsOptions {
   /**
    * The shape of the kernel to perform the convolution
-   * @default { kind: 'gaussian', sd: 1.2 },
+   * @default { kind: 'gaussian', sd: 3 },
    */
   shape?: Shape1D;
 

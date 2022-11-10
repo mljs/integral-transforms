@@ -52,6 +52,7 @@
     "typescript": "^4.8.4"
   },
   "dependencies": {
+    "cheminfo-types": "^1.4.0",
     "ml-convolution": "^2.0.0",
     "ml-peak-shape-generator": "^4.1.2",
     "ml-spectra-processing": "^11.14.0"
