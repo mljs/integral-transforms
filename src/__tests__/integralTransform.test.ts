@@ -34,8 +34,8 @@ describe('Testing basis functions', () => {
     const broadenedSpectrum = integralTransform(input);
     expect(broadenedSpectrum).toBeDeepCloseTo(
       [
-        0.33, 0.6, 0.9, 1.2, 1.5, 1.8, 2.1, 2.33, 2.43, 2.33, 2.1, 1.8, 1.5,
-        1.2, 0.9, 0.6, 0.33,
+        0.77, 1.2, 1.71, 2.28, 2.85, 3.42, 3.87, 4.16, 4.26, 4.16, 3.87, 3.42,
+        2.85, 2.28, 1.71, 1.2, 0.77,
       ],
       1,
     );

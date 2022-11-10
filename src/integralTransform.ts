@@ -1,3 +1,4 @@
+import { NumberArray } from 'cheminfo-types';
 import { BorderType, fftConvolution } from 'ml-convolution';
 import { getShape1D, Shape1D } from 'ml-peak-shape-generator';
 import { xNormed } from 'ml-spectra-processing';
@@ -9,9 +10,12 @@ import { xNormed } from 'ml-spectra-processing';
  * @returns - broadened spectrum
  */
 
-export function integralTransform(array: number[], options: Options = {}) {
+export function integralTransform(
+  array: NumberArray,
+  options: IntegralTransformsOptions = {},
+) {
   const {
-    shape = { kind: 'gaussian', sd: 1.2 },
+    shape = { kind: 'gaussian', sd: 3 },
     kernelWidth = 7,
     normalized = false,
     kernelHeight = 1,
@@ -28,10 +32,34 @@ export function integralTransform(array: number[], options: Options = {}) {
     : result;
 }
 
-interface Options {
+interface IntegralTransformsOptions {
+  /**
+   * The shape of the kernel to perform the convolution
+   * @default { kind: 'gaussian', sd: 3 },
+   */
   shape?: Shape1D;
+
+  /**
+   * The width of the kernel (in number of points)
+   * @default 7
+   */
   kernelWidth?: number;
+
+  /**
+   * if true it will normalize the array to have the max height equal to de value defined in the options
+   * @default true
+   */
   normalized?: boolean;
+
+  /**
+   * Kernel height to perform the convolution
+   * @default 1
+   */
   kernelHeight?: number;
+
+  /**
+   * Maximum height of the vector on which the convolution will be applied
+   * @default 1
+   */
   maxHeight?: number;
 }
