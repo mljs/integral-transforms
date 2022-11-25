@@ -22,23 +22,12 @@
 import { integralTransform } from 'integral-transform';
 
 const signal = [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.4, 0.3, 0.2, 0.1, 0];
-
-const broadedSignal = integralTransform(signal, { kernelWidth: 7 });
-// [0.04, 0.12, 0.24, 0.53, 0.80, 1, 0.80, 0.53, 0.24, 0.12,0.04]
+const broadedSignal = integralTransform(signal);
+// [0.1, 0.3, 0.6, 0.9, 1.2, 1.3, 1.2, 0.9, 0.6, 0.3, 0.1]
 ```
-
-**Arguments**
-
-- `array`: Vector containing the inputs.
-
-**Options**
-
-- `shape`: Define the shape of the kernel (default: 'triangular').
-- `kernelWidth`: Set up the length of the kernel to perform the convolution (default: 7).
 
 **Shapes**
 
-- Triangular
 - Gaussian
 - Lorentzian
 

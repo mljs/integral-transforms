@@ -37,13 +37,13 @@ export function integralTransform(
 interface IntegralTransformsOptions {
   /**
    * The shape of the kernel to perform the convolution
-   * @default { kind: 'gaussian', sd: 3 },
+   * @default { kind: 'gaussian', fwhm: 7 },
    */
   shape?: Shape1D;
 
   /**
-   * The width of the kernel (in number of points)
-   * @default 7
+   * By default, the factor to cover 0.999 of the surface under the shape.
+   * @default
    */
   kernelWidth?: number;
 
