@@ -15,15 +15,17 @@ export function integralTransform(
   options: IntegralTransformsOptions = {},
 ) {
   const {
-    shape = { kind: 'gaussian', sd: 3 },
-    kernelWidth = 7,
-    normalized = false,
+    shape = { kind: 'gaussian', fwhm: 7 },
     kernelHeight = 1,
+    kernelWidth = 0,
+    normalized = false,
     maxHeight = 1,
   } = options;
-  const kernelBasis = getShape1D({ ...shape, fwhm: kernelWidth });
+  const kernelBasis = getShape1D(shape);
+  const widthFactor = Math.ceil(kernelBasis.getFactor(0.999));
+  const defaultWidth = widthFactor % 2 === 0 ? widthFactor - 1 : widthFactor;
   const kernel = kernelBasis.getData({
-    length: kernelWidth,
+    length: kernelWidth ? kernelWidth : defaultWidth,
     height: kernelHeight,
   });
   const result = fftConvolution(array, kernel, 'CONSTANT' as BorderType);
@@ -35,13 +37,13 @@ export function integralTransform(
 interface IntegralTransformsOptions {
   /**
    * The shape of the kernel to perform the convolution
-   * @default { kind: 'gaussian', sd: 3 },
+   * @default { kind: 'gaussian', fwhm: 7 },
    */
   shape?: Shape1D;
 
   /**
-   * The width of the kernel (in number of points)
-   * @default 7
+   * By default, the factor to cover 0.999 of the surface under the shape.
+   * @default
    */
   kernelWidth?: number;
 
